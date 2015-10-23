@@ -549,7 +549,7 @@
 				_p(3,'productInstallPath = "%s";', p)
 			end
 			
-			_p(3,'productName = "%s";', name)
+			_p(3,'productName = %s;', name)
 			_p(3,'productReference = %s /* %s */;', node.id, node.name)
 			_p(3,'productType = "%s";', xcode.getproducttype(node))
 			_p(2,'};')
@@ -849,6 +849,7 @@
 			_p(4,'COPY_PHASE_STRIP = NO;')
 		end
 		
+		_p(4, 'ENABLE_TESTABILITY = YES;')
 		_p(4,'GCC_C_LANGUAGE_STANDARD = gnu99;')
 		
 		if cfg.flags.NoExceptions then
@@ -971,10 +972,10 @@
 			end
 			_p(3,');')
 			_p(3,'defaultConfigurationIsVisible = 0;')
-			_p(3,'defaultConfigurationName = "%s";', xcode.getconfigname(tr.configs[1]))
+			_p(3,'defaultConfigurationName = %s;', xcode.getconfigname(tr.configs[1]))
 			_p(2,'};')
 		end
-		_p(2,'1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "%s" */ = {', tr.name)
+		_p(2,'1DEB928908733DD80010E9CD /* Build configuration list for PBXProject %s */ = {', tr.name)
 		_p(3,'isa = XCConfigurationList;')
 		_p(3,'buildConfigurations = (')
 		for _, cfg in ipairs(tr.configs) do
@@ -982,7 +983,7 @@
 		end
 		_p(3,');')
 		_p(3,'defaultConfigurationIsVisible = 0;')
-		_p(3,'defaultConfigurationName = "%s";', xcode.getconfigname(tr.configs[1]))
+		_p(3,'defaultConfigurationName = %s;', xcode.getconfigname(tr.configs[1]))
 		_p(2,'};')
 		_p('/* End XCConfigurationList section */')
 		_p('')
